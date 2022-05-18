@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./playground.css";
+import History from "../history/history";
 class Playground extends Component {
   state = {
     boardSize: 9,
@@ -25,6 +26,7 @@ class Playground extends Component {
   render() {
     return (
       <React.Fragment>
+        <h1>React Fundamentals.</h1>
         <div className="row">
           <div className="col-md-4">
             <table className="table table-bordered">
@@ -48,6 +50,7 @@ class Playground extends Component {
             </table>
           </div>
         </div>
+        <History />
       </React.Fragment>
     );
   }
