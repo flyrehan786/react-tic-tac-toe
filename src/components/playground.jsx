@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./playground.css";
 class Playground extends Component {
   state = {
-    initialData: [
+    board: [
       undefined,
       undefined,
       undefined,
@@ -17,9 +17,19 @@ class Playground extends Component {
       { id: 1, name: "X" },
       { id: 2, name: "0" },
     ],
-    indexUserTurn: 0,
+    turnOf: 0,
     movesCount: 0,
     historyKeeper: [],
+    patterns: [
+      [0, 2, 1],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ],
   };
   render() {
     return (
@@ -29,37 +39,19 @@ class Playground extends Component {
             <table className="table table-bordered">
               <tbody>
                 <tr>
-                  <td onClick={() => this.move(0)}>
-                    {this.state.initialData[0]}
-                  </td>
-                  <td onClick={() => this.move(1)}>
-                    {this.state.initialData[1]}
-                  </td>
-                  <td onClick={() => this.move(2)}>
-                    {this.state.initialData[2]}
-                  </td>
+                  <td onClick={() => this.move(0)}>{this.state.board[0]}</td>
+                  <td onClick={() => this.move(1)}>{this.state.board[1]}</td>
+                  <td onClick={() => this.move(2)}>{this.state.board[2]}</td>
                 </tr>
                 <tr>
-                  <td onClick={() => this.move(3)}>
-                    {this.state.initialData[3]}
-                  </td>
-                  <td onClick={() => this.move(4)}>
-                    {this.state.initialData[4]}
-                  </td>
-                  <td onClick={() => this.move(5)}>
-                    {this.state.initialData[5]}
-                  </td>
+                  <td onClick={() => this.move(3)}>{this.state.board[3]}</td>
+                  <td onClick={() => this.move(4)}>{this.state.board[4]}</td>
+                  <td onClick={() => this.move(5)}>{this.state.board[5]}</td>
                 </tr>
                 <tr>
-                  <td onClick={() => this.move(6)}>
-                    {this.state.initialData[6]}
-                  </td>
-                  <td onClick={() => this.move(7)}>
-                    {this.state.initialData[7]}
-                  </td>
-                  <td onClick={() => this.move(8)}>
-                    {this.state.initialData[8]}
-                  </td>
+                  <td onClick={() => this.move(6)}>{this.state.board[6]}</td>
+                  <td onClick={() => this.move(7)}>{this.state.board[7]}</td>
+                  <td onClick={() => this.move(8)}>{this.state.board[8]}</td>
                 </tr>
               </tbody>
             </table>
@@ -70,28 +62,38 @@ class Playground extends Component {
   }
 
   move(index) {
-    console.log(this.state.users[this.state.indexUserTurn]);
-    this.state.initialData[index] =
-      this.state.users[this.state.indexUserTurn].name;
-    const update = this.state.initialData;
-    this.setState({
-      initialData: update,
-    });
-    this.updateUserTurn();
+    console.log("Move Counts." + this.state.movesCount);
+    console.log(this.state.movesCount);
+    if (this.state.movesCount < 9) {
+      console.log(this.state.users[this.state.turnOf]);
+      this.state.board[index] = this.state.users[this.state.turnOf].name;
+      const boardUpdate = this.state.board;
+      this.setState({
+        board: boardUpdate,
+      });
+      this.updateUserTurn();
+      if (this.state.movesCount === 9) {
+        console.log("Game Over.");
+      }
+    }
   }
 
   updateUserTurn() {
-    if (this.state.indexUserTurn === 0) {
+    if (this.state.turnOf === 0) {
       this.setState({
-        indexUserTurn: 1,
+        turnOf: 1,
+      });
+    } else {
+      this.setState({
+        turnOf: 0,
       });
     }
-    if (this.state.indexUserTurn === 1) {
-      this.setState({
-        indexUserTurn: 0,
-      });
-    }
-  }
-}
 
+    this.state.movesCount++;
+    this.setState({
+      movesCount: this.state.movesCount,
+    });
+  }
+  analyzePatterns() {}
+}
 export default Playground;
