@@ -4,7 +4,7 @@ import History from "../history/history";
 class Playground extends Component {
   state = {
     boardSize: 9,
-    board: [],
+    board: ["", "", "", "", "", "", "", "", ""],
     users: [
       { id: 1, name: "X" },
       { id: 2, name: "0" },
@@ -32,19 +32,37 @@ class Playground extends Component {
             <table className="table table-bordered">
               <tbody>
                 <tr>
-                  <td onClick={() => this.move(0)}>{this.state.board[0]}</td>
-                  <td onClick={() => this.move(1)}>{this.state.board[1]}</td>
-                  <td onClick={() => this.move(2)}>{this.state.board[2]}</td>
+                  <td onClick={() => this.move(0)}>
+                    <span className="p-4">{this.state.board[0]}</span>
+                  </td>
+                  <td onClick={() => this.move(1)}>
+                    <span className="p-4">{this.state.board[1]}</span>
+                  </td>
+                  <td onClick={() => this.move(2)}>
+                    <span className="p-4">{this.state.board[2]}</span>
+                  </td>
                 </tr>
                 <tr>
-                  <td onClick={() => this.move(3)}>{this.state.board[3]}</td>
-                  <td onClick={() => this.move(4)}>{this.state.board[4]}</td>
-                  <td onClick={() => this.move(5)}>{this.state.board[5]}</td>
+                  <td onClick={() => this.move(3)}>
+                    <span className="p-4">{this.state.board[3]}</span>
+                  </td>
+                  <td onClick={() => this.move(4)}>
+                    <span className="p-4">{this.state.board[4]}</span>
+                  </td>
+                  <td onClick={() => this.move(5)}>
+                    <span className="p-4">{this.state.board[5]}</span>
+                  </td>
                 </tr>
                 <tr>
-                  <td onClick={() => this.move(6)}>{this.state.board[6]}</td>
-                  <td onClick={() => this.move(7)}>{this.state.board[7]}</td>
-                  <td onClick={() => this.move(8)}>{this.state.board[8]}</td>
+                  <td onClick={() => this.move(6)}>
+                    <span className="p-4">{this.state.board[6]}</span>
+                  </td>
+                  <td onClick={() => this.move(7)}>
+                    <span className="p-4">{this.state.board[7]}</span>
+                  </td>
+                  <td onClick={() => this.move(8)}>
+                    <span className="p-4">{this.state.board[8]}</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -83,7 +101,9 @@ class Playground extends Component {
       movesCount: this.state.movesCount,
     });
 
-    this.analyzePatterns();
+    if (this.state.movesCount === this.state.boardSize) {
+      this.analyzePatterns();
+    }
   }
   analyzePatterns() {
     // User = X
