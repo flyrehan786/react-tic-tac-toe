@@ -3,7 +3,6 @@ import "./playground.css";
 import History from "../history/history";
 class Playground extends Component {
   state = {
-    boardSize: 9,
     board: ["", "", "", "", "", "", "", "", ""],
     users: [
       { id: 1, name: "X" },
@@ -68,12 +67,12 @@ class Playground extends Component {
             </table>
           </div>
         </div>
-        <History />
+        <History history={this.state.history} />
       </React.Fragment>
     );
   }
   move(index) {
-    if (this.state.movesCount < this.state.boardSize) {
+    if (this.state.movesCount < this.state.board.length + 1) {
       this.state.board[index] =
         this.state.users[this.state.currentUserIndex].name;
       const boardUpdate = this.state.board;
@@ -81,10 +80,15 @@ class Playground extends Component {
         board: boardUpdate,
       });
       this.updateState();
-      if (this.state.movesCount === this.state.boardSize) {
+      if (this.state.movesCount === this.state.board.length + 1) {
         console.log("Game Over.");
       }
     }
+
+    this.state.history.push(index);
+    this.setState({
+      history: this.state.history,
+    });
   }
   updateState() {
     if (this.state.currentUserIndex === 0) {
@@ -101,7 +105,7 @@ class Playground extends Component {
       movesCount: this.state.movesCount,
     });
 
-    if (this.state.movesCount === this.state.boardSize) {
+    if (this.state.movesCount === this.state.board.length + 1) {
       this.analyzePatterns();
     }
   }
@@ -241,6 +245,8 @@ class Playground extends Component {
     } else {
       console.log("Match Draw.");
     }
+
+    console.log("History: " + this.state.history);
   }
 }
 export default Playground;
