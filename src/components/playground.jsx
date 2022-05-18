@@ -2,24 +2,15 @@ import React, { Component } from "react";
 import "./playground.css";
 class Playground extends Component {
   state = {
-    board: [
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-    ],
+    boardSize: 9,
+    board: [],
     users: [
       { id: 1, name: "X" },
       { id: 2, name: "0" },
     ],
-    turnOf: 0,
+    currentUserIndex: 0,
     movesCount: 0,
-    historyKeeper: [],
+    history: [],
     patterns: [
       [0, 2, 1],
       [3, 4, 5],
@@ -60,35 +51,31 @@ class Playground extends Component {
       </React.Fragment>
     );
   }
-
   move(index) {
-    console.log("Move Counts." + this.state.movesCount);
-    console.log(this.state.movesCount);
-    if (this.state.movesCount < 9) {
-      console.log(this.state.users[this.state.turnOf]);
-      this.state.board[index] = this.state.users[this.state.turnOf].name;
+    if (this.state.movesCount < this.state.boardSize) {
+      console.log(this.state.users[this.state.currentUserIndex]);
+      this.state.board[index] =
+        this.state.users[this.state.currentUserIndex].name;
       const boardUpdate = this.state.board;
       this.setState({
         board: boardUpdate,
       });
-      this.updateUserTurn();
-      if (this.state.movesCount === 9) {
+      this.updateState();
+      if (this.state.movesCount === this.state.boardSize) {
         console.log("Game Over.");
       }
     }
   }
-
-  updateUserTurn() {
-    if (this.state.turnOf === 0) {
+  updateState() {
+    if (this.state.currentUserIndex === 0) {
       this.setState({
-        turnOf: 1,
+        currentUser: 1,
       });
     } else {
       this.setState({
-        turnOf: 0,
+        currentUser: 0,
       });
     }
-
     this.state.movesCount++;
     this.setState({
       movesCount: this.state.movesCount,
