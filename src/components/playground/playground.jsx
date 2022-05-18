@@ -95,8 +95,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[0][2]] === this.state.users[0]
     ) {
       console.log("Pattern 0 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[1][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[1][1]] ===
@@ -104,8 +103,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[1][2]] === this.state.users[0].name
     ) {
       console.log("Pattern 1 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[2][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[2][1]] ===
@@ -113,8 +111,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[2][2]] === this.state.users[0].name
     ) {
       console.log("Pattern 2 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[3][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[3][1]] ===
@@ -122,8 +119,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[3][2]] === this.state.users[0].name
     ) {
       console.log("Pattern 3 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[4][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[4][1]] ===
@@ -131,8 +127,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[4][2]] === this.state.users[0].name
     ) {
       console.log("Pattern 4 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[5][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[5][1]] ===
@@ -140,8 +135,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[5][2]] === this.state.users[0].name
     ) {
       console.log("Pattern 5 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[6][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[6][1]] ===
@@ -149,8 +143,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[6][2]] === this.state.users[0].name
     ) {
       console.log("Pattern 6 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[7][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[7][1]] ===
@@ -161,7 +154,7 @@ class Playground extends Component {
     }
 
     // User = 0
-    if (
+    else if (
       this.state.board[this.state.patterns[0][0]] ===
         this.state.users[0].name &&
       this.state.board[this.state.patterns[0][1]] ===
@@ -169,8 +162,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[0][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 0 Matched. 0 WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[1][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[1][1]] ===
@@ -178,8 +170,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[1][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 1 Matched. X WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[2][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[2][1]] ===
@@ -187,8 +178,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[2][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 2 Matched. 0 WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[3][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[3][1]] ===
@@ -196,8 +186,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[3][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 3 Matched. 0 WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[4][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[4][1]] ===
@@ -205,8 +194,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[4][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 4 Matched. 0 WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[5][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[5][1]] ===
@@ -214,8 +202,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[5][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 5 Matched. 0 WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[6][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[6][1]] ===
@@ -223,8 +210,7 @@ class Playground extends Component {
       this.state.board[this.state.patterns[6][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 6 Matched. 0 WINS.");
-    }
-    if (
+    } else if (
       this.state.board[this.state.patterns[7][0]] ===
         this.state.users[1].name &&
       this.state.board[this.state.patterns[7][1]] ===
@@ -232,6 +218,8 @@ class Playground extends Component {
       this.state.board[this.state.patterns[7][2]] === this.state.users[1].name
     ) {
       console.log("Pattern 7 Matched. 0 WINS.");
+    } else {
+      console.log("Match Draw.");
     }
   }
 }
